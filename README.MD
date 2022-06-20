@@ -21,8 +21,6 @@ robot -d ./logs tests
 
 ## Biblioteca utilizadas:
 
-mudar o local do app antes da execução do projeto
-
 -psycopg2
 
 instação

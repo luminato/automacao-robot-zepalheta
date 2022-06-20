@@ -39,3 +39,10 @@ Então devo ver a notificação:
     [Arguments]     ${expect_message}
 
     Wait Until Element Contains     ${TOASTER_SUCCESS}    ${expect_message}   5
+
+
+Então devo ver mensagens informando que os campos do cadastro de cliente são obrigatórios
+    Wait Until Page Contains    Nome é obrigatório          5
+    Wait Until Page Contains    CPF é obrigatório           5
+    Wait Until Page Contains    Endereço é obrigatório      5
+    Wait Until Page Contains    Telefone é obrigatório      5
