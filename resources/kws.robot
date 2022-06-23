@@ -72,3 +72,30 @@ Então devo ver o texto:
     [Arguments]     ${expect_message}
 
     Wait Until Page Contains      ${expect_message}     5  
+
+
+##Equipos
+Dado que acesso o fomrulário para cadastro de um equipo
+    Wait Until Element Is Visible       ${NAV_EQUIPOS_LINK}       5
+    Click Element                       ${NAV_EQUIPOS_LINK}
+    Wait Until Element Is Visible       ${EQUIPO_FORM}           5
+    Click Element                       ${EQUIPO_FORM} 
+
+
+E que eu tenho o seguinte equipamento:
+    [Arguments]     ${nome_equipo}     ${valor}
+
+    Remove Equipo       ${nome_equipo} 
+
+    Set Test Variable   ${nome_equipo} 
+    Set Test Variable   ${valor}
+
+
+Quando faço a inclusão desse equipamento
+    Register News Equipo    ${nome_equipo}    ${valor}
+
+
+Mas esse equipamento já existe
+    Insert New Equipo       ${nome_equipo}    ${valor}
+
+

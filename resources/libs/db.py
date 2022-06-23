@@ -38,3 +38,18 @@ def remove_customer_by_cpf(cpf):
     print(query)
 
     execute_q(query)
+
+
+def insert_new_equipo(nome, valor):
+
+    query = "insert into public.equipos(name, daily_price) values ('{}','{}');".format(nome, valor)
+
+    execute_q(query)
+
+
+def remove_equipo(nome):
+
+    query = "delete from public.equipos where name = '{}';".format(nome)
+    
+    execute_q(query)
+
