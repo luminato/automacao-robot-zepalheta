@@ -19,13 +19,17 @@ execução de todo o teste
 robot -d ./logs tests
 ```
 
-## Biblioteca utilizadas:
+## configuração do ambiente
 
--psycopg2
+-criando o ambiente docker
 
-instação
+subindo ambiente
 ```sh
-https://pypi.org/project/psycopg2/
+docker-compose up -d
+```
+carregando arquivos de configurações 
+```sh
+docker exec -it zepalheta-api sh /home/node/api/setup.sh
 ```
 
 

@@ -3,7 +3,6 @@
 Library     SeleniumLibrary
 
 Library     libs/db.py
-Library     libs/gerador_de_cpf.py
 
 Resource    kws.robot
 Resource    hooks.robot

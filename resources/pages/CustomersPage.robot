@@ -1,8 +1,13 @@
 ***Settings***
 Documentation       Representação a página clientes com seus elementos
 
+
 ***Variables***
-${CUSTOMERS_FORM}       css:a[href$=register]       
+${CUSTOMERS_FORM}       css:a[href$=register]
+${LABEL_NAME}           css:label[for=name]
+${LABEL_CPF}            css:label[for=cpf]
+${LABEL_ADDRESS}        css:label[for=address]
+${LABEL_PHONE}          css:label[for=phone_number]
 
 ***Keywords***
 Register New Customer
@@ -10,7 +15,7 @@ Register New Customer
 
     Input Text      id:name             ${name}
     Input Text      id:cpf              ${cpf}
-    Input Text      id:address           ${address}
+    Input Text      id:address          ${address}
     Input Text      id:phone_number     ${phone_number}
 
-    Click Element   xpath://button[text()='CADASTRAR']
+    Click Element   xpath://button[text()='CADASTRAR']      

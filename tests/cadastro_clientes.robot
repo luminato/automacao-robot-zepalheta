@@ -6,19 +6,32 @@ Resource    ../resources/base.robot
 Suite Setup      Login Session
 Suite Teardown   Finish Session
 
+
+
 ***Test Cases***
 Novo cliente
+    [Tags]      smoke
     Dado que acesso o fomrulário de Cadastro de clientes
-    Quando faço a inclusão desse cliente:
+    E que eu tenho o seguinte cliente:
     ...        Bom jovi     00000001406     Rua dos bugs, 123       11999999999
+    Quando faço a inclusão desse cliente
     Então devo ver a notificação:   Cliente cadastrado com sucesso!
 
+Cliente duplicado
+    [Tags]      smoke
+    Dado que acesso o fomrulário de Cadastro de clientes
+    E que eu tenho o seguinte cliente:
+    ...        Bom jovi     00000001406     Rua dos bugs, 123       11999999999
+    Mas esse cpf já existe no sistema
+    Quando faço a inclusão desse cliente
+    Então devo ver a notificação de erro:   Este CPF já existe no sistema!
 
 Campos obrigatorios
     [tags]      temp
     Dado que acesso o fomrulário de Cadastro de clientes
-    Quando faço a inclusão desse cliente:
+    E que eu tenho o seguinte cliente:
     ...        ${EMPTY}     ${EMPTY}     ${EMPTY}       ${EMPTY}
+    Quando faço a inclusão desse cliente
     Então devo ver mensagens informando que os campos do cadastro de cliente são obrigatórios
 
 
@@ -51,6 +64,7 @@ Telefone inválido
 Validção de Campos
     [Arguments]     ${nome}     ${cpf}      ${endereco}     ${telefone}     ${saida}
     Dado que acesso o fomrulário de Cadastro de clientes
-    Quando faço a inclusão desse cliente:
+    E que eu tenho o seguinte cliente:
     ...        ${nome}     ${cpf}      ${endereco}     ${telefone}
+    Quando faço a inclusão desse cliente
     Então devo ver o texto:     ${saida}
