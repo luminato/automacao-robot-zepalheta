@@ -16,6 +16,7 @@ Novo cliente
     ...        Bom jovi     00000001406     Rua dos bugs, 123       11999999999
     Quando faço a inclusão desse cliente
     Então devo ver a notificação:   Cliente cadastrado com sucesso!
+    E esse cliente deve aparecer na lista!
 
 Cliente duplicado
     [Tags]      smoke
