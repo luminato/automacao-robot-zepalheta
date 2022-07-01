@@ -24,8 +24,7 @@ robot -d ./logs tests
 
 #### criando o ambiente docker
 
-
-
+-execute o arquivo "setup.bat" para configuração automatica do docker.
 
 configurando e subindo ambiente
 ```sh
