@@ -1,5 +1,5 @@
 robotframework
 robotframework-seleniumlibrary
 robotframework-requests
-AllureReportingLibrary
 psycopg2
+robotframework-pabot
