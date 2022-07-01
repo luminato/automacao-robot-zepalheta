@@ -18,6 +18,7 @@ Get Session Token
 
     [Return]        ${token}
 
+
 ##Post /sessions
 Post Session
     [Arguments]         ${email}            ${password}
@@ -31,6 +32,7 @@ Post Session
 
     [Return]        ${resp}
 
+
 ##POST /customers
 Post customer
     [Arguments]         ${payload}
@@ -43,6 +45,18 @@ Post customer
     ${resp}=        Post Request       zp-api      /customers        data=${payload}         headers=${headers}
 
     [Return]        ${resp}
+
+
+# GET /customers
+Get Customers
+    Create Session       zp-api      ${base_url}
+
+    ${token}=       Get Session Token
+    &{headers}=     Create Dictionary         Content-Type=Application/json     Authorization=${token}
+
+    ${resp}=        Get Request     zp-api      /customers      headers=${headers}
+
+    [return]        ${resp}
 
 
 ##DELETE /customers
