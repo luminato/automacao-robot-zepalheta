@@ -1,11 +1,12 @@
 ***Settings***
 Resource        ../../resources/services.robot
 
+Library         OperatingSystem
 
 ***Test Cases***
 New Customer
 
-    &{payload}=     Create Dictionary       name=joão       cpf=789.777.777-77      address=rua 88      phone_number=81999999999
+    ${payload}=     Get json        customers/sucess.json
 
     Delete Customer         ${payload['cpf']}
     ${resp}=        Post customer         ${payload}
@@ -15,8 +16,7 @@ New Customer
 
 Name is required
 
-    &{payload}=     Create Dictionary       cpf=789.777.777-77      address=rua 88      phone_number=81999999999
-
+    ${payload}=     Get json        customers/no_name.json
     ${resp}=        Post customer         ${payload}
 
     Status Should Be        400     ${resp}
@@ -25,8 +25,7 @@ Name is required
 
 Cpf is required
 
-    &{payload}=     Create Dictionary       name=joão       address=rua 88      phone_number=81999999999
-
+    ${payload}=     Get json        customers/no_cpf.json
     ${resp}=        Post customer         ${payload}
 
     Status Should Be        400     ${resp}
@@ -35,8 +34,7 @@ Cpf is required
 
 Address is required
 
-    &{payload}=     Create Dictionary       name=joão       cpf=789.777.777-77      phone_number=81999999999
-
+    ${payload}=     Get json        customers/no_address.json
     ${resp}=        Post customer         ${payload}
 
     Status Should Be        400     ${resp}
@@ -45,8 +43,7 @@ Address is required
 
 Phone is required
 
-    &{payload}=     Create Dictionary       name=joão       cpf=789.777.777-77      address=rua 88      
-
+    ${payload}=     Get json        customers/no_phone.json  
     ${resp}=        Post customer         ${payload}
 
     Status Should Be        400     ${resp}
