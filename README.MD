@@ -24,12 +24,21 @@ robot -d ./logs tests
 
 #### criando o ambiente docker
 
+
+
+
 configurando e subindo ambiente
 ```sh
 docker-compose up -d
 ```
 carregando arquivos de configurações da api 
 ```sh
+docker exec -it zepalheta-api sh /home/node/api/setup.sh
+```
+descendo a aplicação para atualizações (apenas após mudara a versão) 
+```sh
+docker-compose down
+docker-compose up -d
 docker exec -it zepalheta-api sh /home/node/api/setup.sh
 ```
 
