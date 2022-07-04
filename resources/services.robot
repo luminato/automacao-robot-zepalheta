@@ -96,4 +96,6 @@ Delete Customer
     ${token}=       Get Session Token
     &{headers}=     Create Dictionary       Content-Type=application/json           Authorization=${token}
 
-    Delete Request    zp-api      /customers/${cpf}      headers=${headers}
+    ${resp}=        Delete Request    zp-api      /customers/${cpf}      headers=${headers}
+
+    [Return]        ${resp}
