@@ -28,7 +28,7 @@ pipeline {
 
     post {
         always {
-            robot disableArchiveOutput: true, logFileName: '**/log.html', otherFiles: '**/*.png,**/*.jpg', outputFileName: '**/output.xml', outputPath: 'logs', reportFileName: '**/report.html'
+            robot archiveDirName: 'robot-plugin', disableArchiveOutput: true, logFileName: '**/log.htm', otherFiles: '**/*.png,**/*.jpg', outputFileName: '**/output.xml', outputPath: 'logs', overwriteXAxisLabel: '', reportFileName: '**/report.xml'
             chuckNorris()
         }
     }
