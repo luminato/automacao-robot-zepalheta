@@ -6,6 +6,7 @@ Resource    ../../resources/base.robot
 Suite Setup          Start Session
 Suite Teardown       Finish Session
 Test Template       Tentativa de login
+Test Teardown        Finish TestCase
  
 *** Keywords ***
 Tentativa de login

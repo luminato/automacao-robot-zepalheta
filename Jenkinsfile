@@ -1,7 +1,7 @@
 pipeline {
     agent {
         docker {
-            image 'python'
+            image 'qaninja/python-wd'
             args '--network=zepalheta-network'
         }
     }
@@ -12,11 +12,24 @@ pipeline {
                 sh 'pip install -r requirements.txt'
             }
         }
-        stage('Api tests'){
+        stage('Api Tests'){
             steps{
-                sh 'robot -d ./logs tests/api'
-                robot archiveDirName: 'robot-plugin', outputPath: 'logs', overwriteXAxisLabel: ''
+                sh 'robot -d ./logs/api tests/api'
+                
             }
+        }
+        stage('Web Tests'){
+            steps{
+                sh 'robot -d ./logs/web -v browser:headless tests/web'
+            }
+        }
+    
+    }
+
+    post {
+        always {
+            robot disableArchiveOutput: true, logFileName: '**/log.html', otherFiles: '**/*.png,**/*.jpg', outputFileName: '**/output.xml', outputPath: 'logs', reportFileName: '**/report.html'
+            chuckNorris()
         }
     }
 }
