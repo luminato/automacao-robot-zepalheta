@@ -12,6 +12,7 @@ Testar todas as funcionalidades do site usando Robot, aplicação de page object
 - [x] Docker
 - [x] visual code
 - [x] Insomnia
+- [x] Jenkins
 
 ## Comandos Básicos
 
