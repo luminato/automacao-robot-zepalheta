@@ -14,11 +14,11 @@ ${base_url}         http://zepalheta-api:3333
 ***Keywords***
 ##helpers
 Get Session Token
-    ${resp}=        Post Session        admin@zepalheta.com.br        pwd123
+    ${resp}=        Post Session    admin@zepalheta.com.br        pwd123
 
-    ${token}        Convert To String       Bearer ${resp.json()['token']}
+    ${token}=       Convert To String           Bearer ${resp.json()['token']}
 
-    [Return]        ${token}
+    [return]        ${token}
 
 
 ##Post /sessions

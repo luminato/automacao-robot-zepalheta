@@ -10,7 +10,7 @@ Start Session
     Run Keyword If      "${browser}" == "chrome"
     ...     Open Chrome
 
-    Set Window Size     1440    900
+    Set Window Size     1260    720
 
 
 Finish TestCase
