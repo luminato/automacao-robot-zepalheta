@@ -137,10 +137,12 @@ Dado que eu tenho o seguinte cliente cadastrado:
 
     ${customer}=        Get Json        customers/${file_name}
 
-    #Delete Customer     ${customer['cpf']}
-    Remove Customer By cpf          ${customer['cpf']}
-    Insert Customer     ${customer['name']}     ${customer['cpf']}      ${customer['address']}      ${customer['phone_number']}
-    #${resp}=        Post Customer       ${customer}
+    ${cpf_user}=        Convert To String       ${customer['cpf']}       
+    
+    Remove Contract
+    Remove Customer By cpf          ${cpf_user}
+    Insert Customer     ${customer['name']}     ${cpf_user}     ${customer['address']}      ${customer['phone_number']}
+    
     Set Test Variable   ${customer}
 
 E este cliente deseja alugar o seguinte equipo:
@@ -148,6 +150,7 @@ E este cliente deseja alugar o seguinte equipo:
 
     ${equipo}=      Get Json     equipos/${file_name}
 
+    Remove Equipo           ${equipo['name']} 
     Insert New Equipo       ${equipo['name']}    ${equipo['valor']}
     #Post Equipo             ${equipo}
     Set Test Variable       ${equipo}

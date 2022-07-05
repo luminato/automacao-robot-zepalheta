@@ -53,3 +53,10 @@ def remove_equipo(nome):
     
     execute_q(query)
 
+
+def remove_contract():
+
+    query = "DELETE FROM public.contracts"
+
+    execute_q(query)
+
